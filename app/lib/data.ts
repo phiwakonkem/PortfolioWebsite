@@ -10,6 +10,7 @@ export const personal = {
   linkedin: "https://www.linkedin.com/in/phiwakonke-mthethwa-97aa74331",
   whatsapp: "+27 83 596 5731",
   profileImage: "/images/profile.jpg",
+  cvPath: "/cv/Phiwakonke_Mthethwa_CV.pdf",
 };
 
 export type ProjectStatus =

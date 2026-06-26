@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { EditProvider } from "./components/EditContext";
 import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
@@ -24,8 +25,10 @@ export default function RootLayout({
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
+          <EditProvider>
+            <Navbar />
+            <main>{children}</main>
+          </EditProvider>  
         </ThemeProvider>
       </body>
     </html>

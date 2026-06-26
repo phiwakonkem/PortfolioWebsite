@@ -62,7 +62,7 @@ export default function Connect() {
               <span style={{ color: "var(--accent)" }}>Let's talk.</span>
             </h2>
             <p style={{ color: "var(--text-muted)", lineHeight: 1.8, marginBottom: "40px", maxWidth: "380px" }}>
-              Whether it's a freelance project,a job opportunity,or just a conversation about software,my inbox is open.
+              Whether it's a freelance project,a job opportunity,or just a conversation about software,and/or web dev,my inbox is open.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -84,7 +84,7 @@ export default function Connect() {
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               <div>
                 <label style={{ display: "block", fontSize: "0.82rem", color: "var(--text-muted)", marginBottom: "6px", fontWeight: 500 }}>Your name</label>
-                <input className="field" type="text" placeholder="e.g. Thabo Nkosi" value={form.name} onChange={update("name")} />
+                <input className="field" type="text" placeholder="e.g. Lionel Messi" value={form.name} onChange={update("name")} />
               </div>
               <div>
                 <label style={{ display: "block", fontSize: "0.82rem", color: "var(--text-muted)", marginBottom: "6px", fontWeight: 500 }}>
