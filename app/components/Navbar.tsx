@@ -85,7 +85,7 @@ export default function Navbar() {
 
           <a          
             href={personal.cvPath}
-            download="Phiwakonke_Mthethwa_CV.pdf"
+            download="PK_Mthethwa_CV.pdf"
             style={{
               display: "flex", alignItems: "center", gap: "6px",
               background: "var(--accent)", color: "#000",
@@ -142,7 +142,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href={personal.cvPath} download="Phiwakonke_Mthethwa_CV.pdf"
+          <a href={personal.cvPath} download="PK_Mthethwa_CV.pdf"
             style={{ display: "flex", alignItems: "center", gap: "6px", color: "var(--accent)", textDecoration: "none", fontWeight: 600 }}>
             <Download size={14} /> Download CV
           </a>
