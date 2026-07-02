@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Phiwakonke Mthethwa — Portfolio Website
 
-## Getting Started
+My personal developer portfolio — built from scratch to showcase my projects, skills, and background as a full-stack developer based in South Africa. Includes a downloadable CV, a themeable UI, and a PIN-protected owner edit mode.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss) ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+
+---
+
+## Features
+
+- **Hero, About, Stack, and Projects sections** — single-page layout with smooth navigation
+- **Project showcase** — pulls structured project data (name, tagline, description, status, tech stack, links) from a central data file
+- **Live status badges** — each project shows its real state (Beta, Complete, In Production, etc.)
+- **Dark/light theme toggle** — powered by `next-themes`
+- **CV download** — serves a PDF directly from `/public/cv`
+- **Contact section** — email, phone, WhatsApp, GitHub, and LinkedIn links
+- **Owner edit mode** — a PIN-gated context (`EditContext.tsx`) for making quick content edits without redeploying code
+- **Custom icon system** — hand-built `Icons.tsx` to work around SVG rendering quirks
+- **Fully responsive** — built mobile-first with Tailwind CSS
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS 4 |
+| Icons | `lucide-react` + custom `Icons.tsx` |
+| Theming | `next-themes` |
+
+## Prerequisites
+
+- Node.js 20 or later
+- npm
+
+## Installation
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/phiwakonkem/PortfolioWebsite.git
+cd PortfolioWebsite
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment variables (see below)
+
+# 4. Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be running at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The owner edit mode is gated by a PIN read from an environment variable. Create a `.env.local` file:
 
-## Learn More
+```env
+NEXT_PUBLIC_EDIT_PIN="your-chosen-pin"
+```
 
-To learn more about Next.js, take a look at the following resources:
+> Since this is a `NEXT_PUBLIC_` variable it's visible in client-side code — treat it as a light deterrent against casual editing, not real authentication.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+PortfolioWebsite/
+├── app/
+│   ├── components/
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Stack.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Connect.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Icons.tsx          # Custom SVG icon workaround
+│   │   ├── EditContext.tsx    # PIN-based owner edit mode
+│   │   └── ThemeProvider.tsx
+│   ├── lib/
+│   │   └── data.ts             # Personal info + project data, single source of truth
+│   ├── layout.tsx
+│   └── page.tsx
+└── public/
+    └── cv/                      # Downloadable CV PDF
+```
 
-## Deploy on Vercel
+## Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server |
+| `npm run build` | Build for production |
+| `npm run start` | Run the production build |
+| `npm run lint` | Run ESLint |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Deployed on [Vercel](https://vercel.com). Set `NEXT_PUBLIC_EDIT_PIN` in the Vercel project's environment variables before deploying.
+
+## Development Notes
+
+- This project was moved out of OneDrive during development to avoid filesystem sync conflicts with Next.js's build cache on Windows.
+- Project data (bio, contact links, and the four featured projects — AfriHaul, DevBoard, Solana Villas, DataPulse) lives entirely in `app/lib/data.ts`, so updating content doesn't require touching component code.
+
+## Author
+
+**Phiwakonke Mthethwa** — Full-Stack Developer, South Africa
+[GitHub](https://github.com/phiwakonkem) · [LinkedIn](https://www.linkedin.com/in/phiwakonke-mthethwa-97aa74331) · phiwakonkem@gmail.com
+
+## License
+
+MIT
